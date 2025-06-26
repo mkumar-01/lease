@@ -1,0 +1,20 @@
+<div class="card" style="width: 18rem">
+  @if(userProfile()?.avatar){
+  <img
+    [src]="userProfile()?.avatar"
+    class="card-img-top"
+    [alt]="userProfile()?.name"
+  />
+  }@else{
+  <p class="text-center pt-4">Img Loading...</p>
+  }
+
+  <div class="card-body">
+    <h5 class="card-title">{{userProfile()?.name}}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Email : {{userProfile()?.email}}</li>
+    <li class="list-group-item">Role : {{userProfile()?.role}}</li>
+    <li class="list-group-item">Updated : {{userProfile()?.updatedAt}}</li>
+  </ul>
+</div>

@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col-md-9">
+    <carousel></carousel>
+  </div>
+  <div class="col-md-3">
+    <div class="card">
+      <img [src]="featured()?.picture" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{featured()?.apartmentName}}</h5>
+        <p class="card-text">{{featured()?.otherDescription?.description}}</p>
+        <a routerLink="/detail/{{featured()?.id}}" class="">Know More...</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mt-3">
+  <div class="col-md-12">
+    <div class="d-flex justify-content-between flex-nowrap">
+      <h1>All Listing</h1>
+      <search (onKeyUp)="onSearch($event)"></search>
+    </div>
+
+    <ul class="property-list">
+      @if(listedProperty()){ @for (item of listedProperty(); track $index) {
+
+      <li>
+        <div class="card" style="width: 18rem" #cardRef>
+          <img [src]="item?.picture" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">{{item?.apartmentName}}</h5>
+            <p class="card-text">{{item?.otherDescription?.description}}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{item?.propertyLocation?.area}}</li>
+            <li class="list-group-item">{{item?.propertyLocation?.state}}</li>
+            <li class="list-group-item">{{item?.propertyDetail?.area}}</li>
+            <li class="list-group-item">{{item?.propertyDetail?.leaseType}}</li>
+            <li class="list-group-item bg-danger text-white bold">
+              {{item?.expectedRent?.expectedRent}}
+            </li>
+          </ul>
+          <div class="card-body d-flex gap-3">
+            <a routerLink="/detail/{{item.id}}" class="btn btn-primary">
+              View Detail
+            </a>
+            <button class="btn btn-primary" (click)="markFavourte(cardRef)">
+              Mark as favourite
+            </button>
+          </div>
+        </div>
+      </li>
+      } }
+    </ul>
+  </div>
+</div>

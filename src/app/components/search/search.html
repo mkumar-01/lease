@@ -1,0 +1,13 @@
+<div class="d-flex justify-content-between flex-nowrap">
+  <label for="search">Search by area/society name</label
+  ><input
+    type="text"
+    class="form-control"
+    name="search"
+    id="search"
+    style="border: 1px solid black; min-width: 300px"
+    placeholder="Search area..."
+    [(ngModel)]="search"
+    (keyup)="sendOutput($event)"
+  />
+</div>

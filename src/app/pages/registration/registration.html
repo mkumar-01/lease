@@ -1,0 +1,55 @@
+<form
+  class="registration"
+  [formGroup]="registrationForm"
+  (ngSubmit)="onRegistrationSubmit()"
+>
+  <div class="mb-3">
+    <label for="userName" class="form-label">User name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="userName"
+      aria-describedby="userName"
+      name="userName"
+      formControlName="userName"
+    />
+    <span
+      class="error"
+      *ngIf="userName?.invalid && (userName?.dirty || userName?.touched)"
+      >Please enter valid user name</span
+    >
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      aria-describedby="email"
+      name="email"
+      formControlName="email"
+    />
+    <span
+      class="error"
+      *ngIf="email?.invalid && (email?.dirty || email?.touched)"
+      >Please enter valid email address</span
+    >
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      aria-describedby="password"
+      name="password"
+      formControlName="password"
+    />
+    <span
+      class="error"
+      *ngIf="password?.invalid && (password?.dirty || password?.touched)"
+      >Please enter valid password</span
+    >
+  </div>
+  <button type="submit" class="btn btn-primary">Register</button>
+</form>

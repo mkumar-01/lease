@@ -1,0 +1,42 @@
+<form
+  class="loginForm"
+  [formGroup]="loginFormGroup"
+  (ngSubmit)="onLoginSubmit()"
+>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input
+      type="email"
+      class="form-control"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      name="email"
+      formControlName="email"
+    />
+    <span
+      class="error"
+      *ngIf="email?.invalid && (email?.dirty || email?.touched)"
+      >Please enter valid email address</span
+    >
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="exampleInputPassword1"
+      name="password"
+      formControlName="password"
+    />
+    <span
+      class="error"
+      *ngIf="password?.invalid && (password?.dirty || password?.touched)"
+      >Please enter valid password</span
+    >
+  </div>
+  <!-- <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+    <label class="form-check-label" for="exampleCheck1">Remeber me</label>
+  </div> -->
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

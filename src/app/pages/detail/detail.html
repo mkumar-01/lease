@@ -1,0 +1,32 @@
+@let detail = propertyDetail();
+<div class="row">
+  <div class="col-3">
+    <img [src]="detail?.picture" [alt]="detail?.apartmentName" />
+  </div>
+  <div class="col-9">
+    <h1>Society Name : {{detail?.apartmentName}}</h1>
+    <h2>Location : {{detail?.propertyLocation?.area}}</h2>
+    <h3>State : {{detail?.propertyLocation?.state}}</h3>
+    <h3>Size : {{detail?.propertyDetail?.area}}</h3>
+    <h3>Lease Type: {{detail?.propertyDetail?.leaseType}}</h3>
+    <h4>Expected Rent : {{detail?.expectedRent?.expectedRent}}</h4>
+    <h4>Negotiable : {{(detail?.expectedRent?.isNegotiable)?"Yes":"No"}}</h4>
+    <h5>Furnished : {{(detail?.furnished)?"Yes":"No"}}</h5>
+    <h5>Amenities Included:</h5>
+    <ul>
+      @for(item of detail?.amenitiesIncluded; track $index){
+      <li>{{item}}</li>
+      }
+    </ul>
+    <p>Other Description : {{detail?.otherDescription?.title}}</p>
+    <p>Other Description : {{detail?.otherDescription?.description}}</p>
+  </div>
+  <textarea
+    name="userComment"
+    id="userComment"
+    class="form-control mb-4"
+    style="border-color: black"
+    #commentRef
+  ></textarea>
+  <button class="btn btn-primary" (click)="post(commentRef)">Post</button>
+</div>
