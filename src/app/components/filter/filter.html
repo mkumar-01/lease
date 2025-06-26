@@ -1,0 +1,33 @@
+<div class="form-check mt-4">
+  <input class="form-check-input" type="checkbox" value="" id="checkDefault" />
+  <label class="form-check-label" for="checkDefault"> Furnished </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="checkChecked" />
+  <label class="form-check-label" for="checkChecked"> Shared</label>
+</div>
+<div class="mt-3">
+  <label for="customRange4" class="form-label">Rent Range</label>
+  <input
+    type="range"
+    class="form-range"
+    min="0"
+    max="100"
+    value="50"
+    id="customRange4"
+  />
+  <output for="customRange4" id="rangeValue" aria-hidden="true">15000</output>
+
+  <script>
+    // This is an example script, please modify as needed
+    const rangeInput = document.getElementById("customRange4");
+    const rangeOutput = document.getElementById("rangeValue");
+
+    // Set initial value
+    rangeOutput.textContent = rangeInput.value;
+
+    rangeInput.addEventListener("input", function () {
+      rangeOutput.textContent = this.value;
+    });
+  </script>
+</div>

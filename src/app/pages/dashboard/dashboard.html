@@ -14,10 +14,14 @@
   </div>
 </div>
 <div class="row mt-3">
-  <div class="col-md-12">
+  <div class="col-md-3">
+    Filter
+    <search (onKeyUp)="onSearch($event)"></search>
+    <filter></filter>
+  </div>
+  <div class="col-md-9">
     <div class="d-flex justify-content-between flex-nowrap">
       <h1>All Listing</h1>
-      <search (onKeyUp)="onSearch($event)"></search>
     </div>
 
     <ul class="property-list">

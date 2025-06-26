@@ -6,9 +6,10 @@ import iPropertyDetail from "../../model/propertyDetail"
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { Search } from '../../components/search/search';
+import { Filter } from '../../components/filter/filter';
 @Component({
   selector: 'dashboard',
-  imports: [Carousel, Search, CommonModule, RouterModule],
+  imports: [Carousel, Search, Filter, CommonModule, RouterModule],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss'
 })
