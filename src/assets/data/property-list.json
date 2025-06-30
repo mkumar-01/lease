@@ -70,7 +70,7 @@
       "Water Heater",
       "Club House"
     ],
-    "shared": "true",
+    "shared": "false",
     "otherDescription": {
       "title": "Some title",
       "description": "Some description"
@@ -193,5 +193,163 @@
       "description": "Some description"
     },
     "featured": "true"
+  },
+
+  {
+    "id": 6,
+    "picture": "assets/data/apartment-1.jpg",
+    "apartmentName": "Builder floor",
+    "propertyLocation": {
+      "area": "Delhi",
+      "state": "Delhi"
+    },
+    "propertyDetail": {
+      "area": 800,
+      "leaseType": "Long Term"
+    },
+    "expectedRent": {
+      "expectedRent": 10000,
+      "isNegotiable": "true",
+      "priceMode": "Per Month"
+    },
+    "furnished": "false",
+    "amenitiesIncluded": [
+      "Gym/Fitness Center",
+      "Power Backup",
+      "Plant Security System",
+      "Swimming Pool",
+      "Garbage Disposal",
+      "Laundry Service",
+      "Car Park",
+      "Private Lawn",
+      "Elevator",
+      "Visitors Parking",
+      "Water Heater",
+      "Club House"
+    ],
+    "shared": "false",
+    "otherDescription": {
+      "title": "Some title",
+      "description": "Some description"
+    },
+    "featured": "false"
+  },
+
+  {
+    "id": 7,
+    "picture": "assets/data/apartment-2.jpg",
+    "apartmentName": "Supertech",
+    "propertyLocation": {
+      "area": "Noida",
+      "state": "UP"
+    },
+    "propertyDetail": {
+      "area": 800,
+      "leaseType": "Long Term"
+    },
+    "expectedRent": {
+      "expectedRent": 10000,
+      "isNegotiable": "true",
+      "priceMode": "Per Month"
+    },
+    "furnished": "true",
+    "amenitiesIncluded": [
+      "Gym/Fitness Center",
+      "Power Backup",
+      "Plant Security System",
+      "Swimming Pool",
+      "Garbage Disposal",
+      "Laundry Service",
+      "Car Park",
+      "Private Lawn",
+      "Elevator",
+      "Visitors Parking",
+      "Water Heater",
+      "Club House"
+    ],
+    "shared": "false",
+    "otherDescription": {
+      "title": "Some title",
+      "description": "Some description"
+    },
+    "featured": "false"
+  },
+  {
+    "id": 8,
+    "picture": "assets/data/apartment-1.jpg",
+    "apartmentName": "Godrej",
+    "propertyLocation": {
+      "area": "Sohna",
+      "state": "Haryana"
+    },
+    "propertyDetail": {
+      "area": 800,
+      "leaseType": "Long Term"
+    },
+    "expectedRent": {
+      "expectedRent": 8000,
+      "isNegotiable": "true",
+      "priceMode": "Per Month"
+    },
+    "furnished": "true",
+    "amenitiesIncluded": [
+      "Gym/Fitness Center",
+      "Power Backup",
+      "Plant Security System",
+      "Swimming Pool",
+      "Garbage Disposal",
+      "Laundry Service",
+      "Car Park",
+      "Private Lawn",
+      "Elevator",
+      "Visitors Parking",
+      "Water Heater",
+      "Club House"
+    ],
+    "shared": "false",
+    "otherDescription": {
+      "title": "Some title",
+      "description": "Some description"
+    },
+    "featured": "false"
+  },
+  {
+    "id": 9,
+    "picture": "assets/data/apartment-5.jpg",
+    "apartmentName": "Amatulya",
+    "propertyLocation": {
+      "area": "Delhi",
+      "state": "Delhi"
+    },
+    "propertyDetail": {
+      "area": 1800,
+      "leaseType": "Long Term"
+    },
+    "expectedRent": {
+      "expectedRent": 28000,
+      "isNegotiable": "true",
+      "priceMode": "Per Month"
+    },
+    "furnished": "true",
+    "amenitiesIncluded": [
+      "Gym/Fitness Center",
+      "Power Backup",
+      "Plant Security System",
+      "Swimming Pool",
+      "Garbage Disposal",
+      "Laundry Service",
+      "Car Park",
+      "Private Lawn",
+      "Elevator",
+      "Visitors Parking",
+      "Water Heater",
+      "Club House"
+    ],
+    "shared": "false",
+    "otherDescription": {
+      "title": "Some title",
+      "description": "Some description"
+    },
+    "featured": "false"
   }
 ]

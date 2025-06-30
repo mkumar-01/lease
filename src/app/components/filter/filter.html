@@ -1,10 +1,32 @@
 <div class="form-check mt-4">
-  <input class="form-check-input" type="checkbox" value="" id="checkDefault" />
+  <input
+    class="form-check-input"
+    type="checkbox"
+    value=""
+    id="checkDefault"
+    (change)="furnished($event)"
+  />
   <label class="form-check-label" for="checkDefault"> Furnished </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="checkChecked" />
+  <input
+    class="form-check-input"
+    type="checkbox"
+    value=""
+    id="checkChecked"
+    (change)="shared($event)"
+  />
   <label class="form-check-label" for="checkChecked"> Shared</label>
+</div>
+<div class="form-check">
+  <input
+    class="form-check-input"
+    type="checkbox"
+    value=""
+    id="negotiable"
+    (change)="negotiable($event)"
+  />
+  <label class="form-check-label" for="negotiable"> Negotiable</label>
 </div>
 <div class="mt-3">
   <label for="customRange4" class="form-label">Rent Range</label>
@@ -12,11 +34,19 @@
     type="range"
     class="form-range"
     min="0"
-    max="100"
-    value="50"
+    max="30000"
+    value="8000"
     id="customRange4"
+    (change)="range($event)"
+    list="markers"
   />
-  <output for="customRange4" id="rangeValue" aria-hidden="true">15000</output>
+  <output
+    for="customRange4"
+    id="rangeValue"
+    aria-hidden="true"
+    style="color: red; font-weight: bold"
+    >Rent till : {{selectedRange()}}</output
+  >
 
   <script>
     // This is an example script, please modify as needed
