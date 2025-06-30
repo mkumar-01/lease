@@ -7,11 +7,12 @@ import { AppState } from '../../store/reducers';
 
 import { CommonModule } from '@angular/common';
 import { Property } from '../../store/models/property.model';
+import { CommentsComponent } from '../../components/comments/comments.component';
 
 
 @Component({
   selector: 'detail',
-  imports: [CommonModule],
+  imports: [CommonModule, CommentsComponent],
   templateUrl: './detail.html',
   styleUrl: './detail.scss'
 })
@@ -32,13 +33,9 @@ export class Detail implements OnInit {
       next: res => {
         const data = res.find(detail => detail.id === Number(this.id))
         this.propertyDetail.set(data)
-        // console.log(this.propertyDetail())
       },
       error: err => console.error(err),
     })
-  }
-  post(post: HTMLTextAreaElement) {
-    console.log(post.value)
   }
 
 }

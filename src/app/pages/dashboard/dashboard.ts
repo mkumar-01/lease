@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { HttpService } from '../../services/http.service';
-
+import { AuthServices } from '../../services/auth.service';
 import { AppState } from '../../store/reducers';
 import * as PropertyActions from '../../store/actions/property.actions';
 import { Property } from '../../store/models/property.model';
@@ -18,6 +18,7 @@ import { Filter } from '../../components/filter/filter';
   styleUrl: './dashboard.scss'
 })
 export class Dashboard implements OnInit {
+  constructor(public authService: AuthServices) { }
   private http = inject(HttpService)
   private store = inject<Store<AppState>>(Store);
 
@@ -28,16 +29,38 @@ export class Dashboard implements OnInit {
   public featured = signal<Property | undefined>(undefined);
   ngOnInit() {
     const endPoint = this.endPoint;
-    this.store.dispatch(PropertyActions.loadProperties({ endPoint }));
+    const localData = localStorage.getItem('data');
+
+    if (localData) {
+      try {
+        const parsedData = JSON.parse(localData) as Property[];
+        this.listedProperty.set(parsedData);
+        this.listClonedToSearch.set(parsedData);
+        this.featured.set(parsedData.find(item => String(item.featured).toLowerCase() === 'true'));
+      } catch (error) {
+        console.error("Failed to parse local storage data:", error);
+        // Fallback to store dispatch
+        this.fetchFromStore(endPoint);
+      }
+    } else {
+      this.fetchFromStore(endPoint);
+    }
+  }
+
+
+
+  private fetchFromStore(endpoint: string) {
+    this.store.dispatch(PropertyActions.loadProperties({ endPoint: endpoint }));
     this.store.select(state => state.property.data).subscribe(data => {
-      this.listedProperty.set(data);
-      this.listClonedToSearch.set(data)
-      this.featured.set(this.listedProperty()?.find(item => {
-        return String(item.featured).toLowerCase() === 'true';
-      }))
-      console.log("state properties ", this.listedProperty())
+      if (data) {
+        this.listedProperty.set(data);
+        this.listClonedToSearch.set(data);
+        this.featured.set(data.find(item => String(item.featured).toLowerCase() === 'true'));
+        localStorage.setItem('data', JSON.stringify(data));
+      }
     });
   }
+
   onSearch(val: string) {
     const value = val.trim().toLowerCase();
     const propertyList = [...this.listClonedToSearch() || []];
@@ -54,8 +77,19 @@ export class Dashboard implements OnInit {
   }
 
   markFavourte(id: number) {
-    this.store.dispatch(PropertyActions.markFavourite({ id }));
+    const localData = localStorage.getItem('data');
+    if (localData) {
+      const parsedData = JSON.parse(localData) as Property[];
+      const index = parsedData.findIndex(item => item.id === id);
+      if (index !== -1) {
+        const updated = { ...parsedData[index], isFavourite: true }; // or toggle if needed
+        parsedData.splice(index, 1, updated);
+        this.listedProperty.set(parsedData);
+        localStorage.setItem('data', JSON.stringify(parsedData));
+      }
+    }
   }
+
 
 
 

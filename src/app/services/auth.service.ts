@@ -30,6 +30,7 @@ export class AuthServices {
     localStorage.removeItem(access_token);
     this.isUserLoggedIn.set(false);
     this.router.navigate(['/login']);
+    localStorage.removeItem('data');
   }
   isLoggedIn(): boolean {
     return this.isUserLoggedIn();

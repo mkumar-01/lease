@@ -52,9 +52,15 @@
               View Detail
             </a>
             <!-- <button class="btn btn-primary" (click)="markFavourte(cardRef)"> -->
+            @if(authService.isUserLoggedIn()){
             <button class="btn btn-primary" (click)="markFavourte(item.id)">
               Mark as favourite
             </button>
+            }@else {
+            <a class="btn btn-primary" routerLink="/login">
+              Mark as favourite
+            </a>
+            }
           </div>
         </div>
       </li>

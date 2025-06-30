@@ -16,6 +16,7 @@ export const initialState: PropertyState = {
 };
 
 export const propertyReducer = createReducer(
+    // localStorage.setItem('data', JSON.stringify(initialState)),
     initialState,
     on(PropertyActions.loadProperties, state => ({ ...state, loading: true })),
     on(PropertyActions.loadPropertiesSuccess, (state, { data }) => ({ ...state, loading: false, data })),
