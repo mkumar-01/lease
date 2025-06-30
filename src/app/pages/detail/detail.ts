@@ -1,5 +1,5 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Store } from '@ngrx/store';
 import * as PropertyActions from '../../store/actions/property.actions';
@@ -21,21 +21,21 @@ export class Detail implements OnInit {
   public id: string | null = null;
   public propertyDetail = signal<Property | undefined>(undefined);
   private activatedRoute = inject(ActivatedRoute);
+  private router = inject(Router);
   private store = inject<Store<AppState>>(Store);
   constructor() {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     console.log(this.id);
   }
   ngOnInit() {
-    const endPoint = this.endPoint;
-    this.store.dispatch(PropertyActions.loadProperties({ endPoint }));
-    this.store.select(store => store.property.data).subscribe({
-      next: res => {
-        const data = res.find(detail => detail.id === Number(this.id))
-        this.propertyDetail.set(data)
-      },
-      error: err => console.error(err),
-    })
+    const localData = localStorage.getItem('data');
+    if (localData) {
+      const parsedData = JSON.parse(localData) as Property[];
+      const data = parsedData.find(detail => detail.id === Number(this.id))
+      this.propertyDetail.set(data);
+    } else {
+      this.router.navigate(['/login'])
+    }
   }
 
 }

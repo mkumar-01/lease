@@ -30,19 +30,19 @@ export class Dashboard implements OnInit {
   ngOnInit() {
     const endPoint = this.endPoint;
     const localData = localStorage.getItem('data');
-
     if (localData) {
       try {
         const parsedData = JSON.parse(localData) as Property[];
+        // console.log(parsedData.filter(item => item.isFavourite))
         this.listedProperty.set(parsedData);
         this.listClonedToSearch.set(parsedData);
         this.featured.set(parsedData.find(item => String(item.featured).toLowerCase() === 'true'));
       } catch (error) {
         console.error("Failed to parse local storage data:", error);
-        // Fallback to store dispatch
-        this.fetchFromStore(endPoint);
+        // this.fetchFromStore(endPoint);
       }
     } else {
+      // console.log("not local")
       this.fetchFromStore(endPoint);
     }
   }
@@ -85,6 +85,7 @@ export class Dashboard implements OnInit {
         const updated = { ...parsedData[index], isFavourite: true }; // or toggle if needed
         parsedData.splice(index, 1, updated);
         this.listedProperty.set(parsedData);
+        localStorage.removeItem('data');
         localStorage.setItem('data', JSON.stringify(parsedData));
       }
     }
