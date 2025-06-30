@@ -1,4 +1,4 @@
-import { ApplicationConfig, importProvidersFrom, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
+import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
@@ -10,16 +10,16 @@ import { authInterceptor } from './services/auth.interceptor';
 
 import { reducers } from './store/reducers';  // You will define this
 // import { effects } from './store/effects';    // You will define this
-import { effects } from './store/effects/counter.effects';    // You will define this
+import { CounterEffects } from './store/effects/counter.effects';    // You will define this
+import { PropertyEffects } from './store/effects/property.effects';    // You will define this
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideZonelessChangeDetection(),
+    provideZoneChangeDetection(),
     provideRouter(routes),
     provideHttpClient(withInterceptors([authInterceptor])),
     provideStore(reducers),
-    provideEffects(effects),
+    provideEffects(CounterEffects, PropertyEffects),
     importProvidersFrom(StoreDevtoolsModule.instrument({ maxAge: 25 }))
   ]
 };

@@ -4,7 +4,9 @@ import { Actions } from '@ngrx/effects';
 
 @Injectable()
 export class CounterEffects {
-    constructor(private actions$: Actions) { }
+    constructor(private actions$: Actions) {
+        this.actions$
+    }
 }
 
 export const effects = [CounterEffects];

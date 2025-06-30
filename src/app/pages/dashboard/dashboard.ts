@@ -1,5 +1,12 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { HttpService } from '../../services/http.service';
+
+
+import { AppState } from '../../store/reducers';
+import * as PropertyActions from '../../store/actions/property.actions';
+import { Property } from '../../store/models/property.model';
+
 import { Carousel } from '../../components/carousel/carousel';
 import { FeaturedList } from '../../components/featured-list/featured-list';
 import iPropertyDetail from "../../model/propertyDetail"
@@ -15,6 +22,8 @@ import { Filter } from '../../components/filter/filter';
 })
 export class Dashboard implements OnInit {
   private http = inject(HttpService)
+  private store = inject<Store<AppState>>(Store);
+  properties: Property[] = [];
   private router = inject(Router);
   // private endPoint = '/data/property-list.json';
   private endPoint = "/assets/data/property-list.json";
@@ -33,6 +42,12 @@ export class Dashboard implements OnInit {
       },
       error: err => console.error(err),
     })
+    this.store.dispatch(PropertyActions.loadProperties());
+
+    this.store.select(state => state.property.data).subscribe(data => {
+      this.properties = data;
+      console.log("state properties ", this.properties)
+    });
   }
   onSearch(val: string) {
     const value = val.trim().toLowerCase();
