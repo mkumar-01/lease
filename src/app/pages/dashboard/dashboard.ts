@@ -2,16 +2,14 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { HttpService } from '../../services/http.service';
 
-
 import { AppState } from '../../store/reducers';
 import * as PropertyActions from '../../store/actions/property.actions';
 import { Property } from '../../store/models/property.model';
 
 import { Carousel } from '../../components/carousel/carousel';
-import { FeaturedList } from '../../components/featured-list/featured-list';
 import iPropertyDetail from "../../model/propertyDetail"
 import { CommonModule } from '@angular/common';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { Search } from '../../components/search/search';
 import { Filter } from '../../components/filter/filter';
 @Component({

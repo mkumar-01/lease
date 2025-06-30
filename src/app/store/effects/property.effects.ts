@@ -9,6 +9,9 @@ import { Property } from '../models/property.model';
 export class PropertyEffects {
     private actions$ = inject(Actions);
     private http = inject(HttpService);
+    constructor() {
+        console.log(this.actions$)
+    }
     loadProperties$ = createEffect(() =>
         this.actions$.pipe(
             ofType(PropertyActions.loadProperties),
@@ -20,8 +23,4 @@ export class PropertyEffects {
             )
         )
     );
-
-
-
-
 }

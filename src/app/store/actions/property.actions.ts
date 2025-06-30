@@ -2,7 +2,7 @@
 import { createAction, props } from '@ngrx/store';
 import { Property } from '../models/property.model';
 
-// export const loadProperties = createAction('[Property] Load Properties', props<{ endPoint: string }>);
+// export const loadProperties = createAction('[Property] Load Properties'); //without parameter
 export const loadProperties = createAction(
     '[Property] Load Properties',
     props<{ endPoint: string }>()  // ✅ Accept `endPoint` as parameter
