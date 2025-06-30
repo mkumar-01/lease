@@ -23,30 +23,20 @@ import { Filter } from '../../components/filter/filter';
 export class Dashboard implements OnInit {
   private http = inject(HttpService)
   private store = inject<Store<AppState>>(Store);
-  properties: Property[] = [];
-  private router = inject(Router);
-  // private endPoint = '/data/property-list.json';
-  private endPoint = "/assets/data/property-list.json";
-  public listedProperty = signal<iPropertyDetail[] | undefined>(undefined);
-  public listClonedToSearch = signal<iPropertyDetail[] | undefined>(undefined);
-  public featured = signal<iPropertyDetail | undefined>(undefined);
-  // public filtered = signal<iPropertyDetail | undefined>(undefined);
-  ngOnInit() {
-    this.http.get<iPropertyDetail[]>(this.endPoint).subscribe({
-      next: res => {
-        this.listedProperty.set(res);
-        this.listClonedToSearch.set(res)
-        this.featured.set(this.listedProperty()?.find(item => {
-          return String(item.featured).toLowerCase() === 'true';
-        }))
-      },
-      error: err => console.error(err),
-    })
-    this.store.dispatch(PropertyActions.loadProperties());
 
+  private endPoint = "/assets/data/property-list.json";
+  public listedProperty = signal<Property[] | undefined>(undefined);
+  public listClonedToSearch = signal<Property[] | undefined>(undefined);
+  public featured = signal<Property | undefined>(undefined);
+  ngOnInit() {
+    this.store.dispatch(PropertyActions.loadProperties());
     this.store.select(state => state.property.data).subscribe(data => {
-      this.properties = data;
-      console.log("state properties ", this.properties)
+      this.listedProperty.set(data);
+      this.listClonedToSearch.set(data)
+      this.featured.set(this.listedProperty()?.find(item => {
+        return String(item.featured).toLowerCase() === 'true';
+      }))
+      console.log("state properties ", this.listedProperty())
     });
   }
   onSearch(val: string) {
@@ -62,8 +52,6 @@ export class Dashboard implements OnInit {
     } else {
       this.listedProperty.set(propertyList)
     }
-
-
 
   }
 
