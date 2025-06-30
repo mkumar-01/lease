@@ -21,5 +21,6 @@ export interface Property {
         title: string,
         description: string
     },
-    featured: boolean
+    featured: boolean,
+    isFavourite: boolean
 }

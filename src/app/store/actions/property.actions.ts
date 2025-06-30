@@ -9,3 +9,4 @@ export const loadProperties = createAction(
 );
 export const loadPropertiesSuccess = createAction('[Property] Load Success', props<{ data: Property[] }>());
 export const loadPropertiesFailure = createAction('[Property] Load Failure', props<{ error: any }>());
+export const markFavourite = createAction('[Property] Mark Favourte', props<{ id: number }>());

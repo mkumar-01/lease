@@ -28,7 +28,11 @@
       @if(listedProperty()){ @for (item of listedProperty(); track $index) {
 
       <li>
-        <div class="card" style="width: 18rem" #cardRef>
+        <div
+          class="card"
+          style="width: 18rem"
+          [ngClass]="(item?.isFavourite)?'favourite':''"
+        >
           <img [src]="item?.picture" class="card-img-top" alt="..." />
           <div class="card-body">
             <h5 class="card-title">{{item?.apartmentName}}</h5>
@@ -47,7 +51,8 @@
             <a routerLink="/detail/{{item.id}}" class="btn btn-primary">
               View Detail
             </a>
-            <button class="btn btn-primary" (click)="markFavourte(cardRef)">
+            <!-- <button class="btn btn-primary" (click)="markFavourte(cardRef)"> -->
+            <button class="btn btn-primary" (click)="markFavourte(item.id)">
               Mark as favourite
             </button>
           </div>

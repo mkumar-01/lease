@@ -7,7 +7,6 @@ import * as PropertyActions from '../../store/actions/property.actions';
 import { Property } from '../../store/models/property.model';
 
 import { Carousel } from '../../components/carousel/carousel';
-import iPropertyDetail from "../../model/propertyDetail"
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Search } from '../../components/search/search';
@@ -42,9 +41,8 @@ export class Dashboard implements OnInit {
   onSearch(val: string) {
     const value = val.trim().toLowerCase();
     const propertyList = [...this.listClonedToSearch() || []];
-    console.log(value)
     if (value !== "") {
-      const searchResult: iPropertyDetail[] = propertyList.filter(item => {
+      const searchResult: Property[] = propertyList.filter(item => {
         const area = item.propertyLocation?.area?.trim().toLowerCase() || '';
         return area.includes(value); // 🔍 Partial match
       });
@@ -55,8 +53,8 @@ export class Dashboard implements OnInit {
 
   }
 
-  markFavourte(id: HTMLDivElement) {
-    id.classList.add('favourite')
+  markFavourte(id: number) {
+    this.store.dispatch(PropertyActions.markFavourite({ id }));
   }
 
 

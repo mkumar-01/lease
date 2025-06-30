@@ -19,5 +19,10 @@ export const propertyReducer = createReducer(
     initialState,
     on(PropertyActions.loadProperties, state => ({ ...state, loading: true })),
     on(PropertyActions.loadPropertiesSuccess, (state, { data }) => ({ ...state, loading: false, data })),
-    on(PropertyActions.loadPropertiesFailure, (state, { error }) => ({ ...state, loading: false, error }))
+    on(PropertyActions.loadPropertiesFailure, (state, { error }) => ({ ...state, loading: false, error })),
+    on(PropertyActions.markFavourite, (state, { id }) => ({
+        ...state,
+        data: state.data.map(property => property.id === id ? { ...property, isFavourite: true } : property)
+    }))
+
 );
