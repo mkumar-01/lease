@@ -2,6 +2,10 @@
 import { createAction, props } from '@ngrx/store';
 import { Property } from '../models/property.model';
 
-export const loadProperties = createAction('[Property] Load Properties');
+// export const loadProperties = createAction('[Property] Load Properties', props<{ endPoint: string }>);
+export const loadProperties = createAction(
+    '[Property] Load Properties',
+    props<{ endPoint: string }>()  // ✅ Accept `endPoint` as parameter
+);
 export const loadPropertiesSuccess = createAction('[Property] Load Success', props<{ data: Property[] }>());
 export const loadPropertiesFailure = createAction('[Property] Load Failure', props<{ error: any }>());

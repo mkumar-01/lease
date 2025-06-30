@@ -25,11 +25,13 @@ export class Dashboard implements OnInit {
   private store = inject<Store<AppState>>(Store);
 
   private endPoint = "/assets/data/property-list.json";
+
   public listedProperty = signal<Property[] | undefined>(undefined);
   public listClonedToSearch = signal<Property[] | undefined>(undefined);
   public featured = signal<Property | undefined>(undefined);
   ngOnInit() {
-    this.store.dispatch(PropertyActions.loadProperties());
+    const endPoint = this.endPoint;
+    this.store.dispatch(PropertyActions.loadProperties({ endPoint }));
     this.store.select(state => state.property.data).subscribe(data => {
       this.listedProperty.set(data);
       this.listClonedToSearch.set(data)

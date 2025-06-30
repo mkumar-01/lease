@@ -12,8 +12,8 @@ export class PropertyEffects {
     loadProperties$ = createEffect(() =>
         this.actions$.pipe(
             ofType(PropertyActions.loadProperties),
-            mergeMap(() =>
-                this.http.getProperties().pipe(
+            mergeMap(({ endPoint }) =>
+                this.http.get<Property[]>(endPoint).pipe(
                     map((data: Property[]) => PropertyActions.loadPropertiesSuccess({ data })),
                     catchError(error => of(PropertyActions.loadPropertiesFailure({ error })))
                 )
