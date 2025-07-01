@@ -11,11 +11,12 @@ import {
 import { CommonModule } from '@angular/common';
 import { Property } from '../../store/models/property.model';
 import { Router } from '@angular/router';
+import { DialogComponent } from '../../components/dialog/dialog.component';
 
 @Component({
   selector: 'create-post',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, DialogComponent],
   templateUrl: './create-post.component.html',
   styleUrl: './create-post.component.scss'
 })
