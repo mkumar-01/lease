@@ -161,13 +161,15 @@
         *ngFor="let amenity of amenitiesList; let i = index"
         formArrayName="amenities"
       >
-        <input
-          type="checkbox"
-          class="form-check-input"
-          [value]="amenity"
-          (change)="onAmenityChange($event)"
-        />
-        <label class="form-check-label">{{ amenity }}</label>
+        <label class="form-check-label">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            [value]="amenity"
+            (change)="onAmenityChange($event)"
+          />
+          {{ amenity }}</label
+        >
       </div>
     </div>
   </div>

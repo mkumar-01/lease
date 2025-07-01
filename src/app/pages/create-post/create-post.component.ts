@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   FormArray,
   FormBuilder,
@@ -9,6 +9,8 @@ import {
   FormsModule
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Property } from '../../store/models/property.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'create-post',
@@ -18,6 +20,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './create-post.component.scss'
 })
 export class CreatePostComponent {
+  private router = inject(Router);
   amenitiesList: string[] = [
     'Gym Fitness',
     'Power Backup',
@@ -99,7 +102,49 @@ export class CreatePostComponent {
       amenities
     };
 
-    console.log(finalData); // Send to API or store
+    this.updateRecord(finalData);
+    this.postFormGroup.reset()
   }
+  updateRecord(newRecord: any) {
+    const localData = localStorage.getItem('data');
+    if (localData) {
+      const parsedData = JSON.parse(localData) as any[];
+      const newID = 1 + parsedData[parsedData.length - 1].id;
+      const newData = {
+        id: newID,
+        ownerName: newRecord.ownerName,
+        picture: "assets/data/apartment-4.jpg",
+        apartmentName: newRecord.apartmentName,
+        propertyLocation: {
+          area: "",
+          state: ""
+        },
+        propertyDetail: {
+          area: newRecord.area,
+          leaseType: "Long term "
+        },
+        expectedRent: {
+          expectedRent: 20000,
+          isNegotiable: newRecord.negotiable,
+          priceMode: newRecord.priceMode1
+        },
+        furnished: newRecord.furnished,
+        amenitiesIncluded: newRecord.amenities,
+        shared: newRecord.shared,
+        otherDescription: {
+          title: newRecord.title,
+          description: newRecord.description
+        },
+        featured: "false",
+        userComments: []
+      };
+
+      parsedData.push(newData);
+      localStorage.removeItem('data');
+      localStorage.setItem('data', JSON.stringify(parsedData));
+      this.router.navigate(['/dashboard'])
+    }
+  }
+
 
 }
