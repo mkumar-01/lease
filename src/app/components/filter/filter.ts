@@ -9,6 +9,7 @@ import { single } from 'rxjs';
 })
 export class Filter {
   public selectedRange = signal<number>(8000);
+  onSelectedRange = output<number>();
   onFurnishedCheck = output<boolean>()
   onSharedCheck = output<boolean>()
   onNegotiableCheck = output<boolean>()
@@ -28,6 +29,7 @@ export class Filter {
     const input = event.target as HTMLInputElement;
     const value = Number(input.value)
     this.selectedRange.set(value)
+    this.onSelectedRange.emit(this.selectedRange())
   }
 
 

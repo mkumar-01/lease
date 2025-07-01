@@ -30,6 +30,8 @@ export class Dashboard implements OnInit {
   public furnishedFilter = false;
   public sharedFilter = false;
   public negotiableFilter = false;
+  public selectedRange: number | null = null;
+
 
   ngOnInit() {
     const endPoint = this.endPoint;
@@ -111,8 +113,22 @@ export class Dashboard implements OnInit {
       filtered = filtered.filter(item => item.expectedRent?.isNegotiable === true);
     }
 
+    // if (this.selectedRange !== null) {
+    //   filtered = filtered.filter(item => item.expectedRent?.expectedRent <= this.selectedRange);
+    // }
+
+    if (this.selectedRange !== null) {
+      filtered = filtered.filter(item =>
+        item.expectedRent !== null &&
+        item.expectedRent !== undefined &&
+        typeof item.expectedRent.expectedRent === 'number' &&
+        item.expectedRent.expectedRent <= this.selectedRange!
+      );
+    }
+
     this.listedProperty.set(filtered);
   }
+
 
 
   onFurnishedCheck(event: boolean) {
@@ -130,6 +146,11 @@ export class Dashboard implements OnInit {
     this.negotiableFilter = event;
     this.applyCombinedFilters();
 
+  }
+
+  onSelectedRange(event: number) {
+    this.selectedRange = event;
+    this.applyCombinedFilters();
   }
 
 
