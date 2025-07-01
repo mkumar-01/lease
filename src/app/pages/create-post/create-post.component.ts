@@ -33,18 +33,44 @@ export class CreatePostComponent {
   ];
 
   postFormGroup = new FormGroup({
-    chooseApartment: new FormControl('', Validators.required),
-    name: new FormControl('', Validators.required),
-    shared: new FormControl('', Validators.required),
-    area: new FormControl('', Validators.required),
-    negotiable: new FormControl(false),
-    priceMode1: new FormControl(false),
+    apartmentName: new FormControl('', Validators.required),
+    ownerName: new FormControl('', Validators.required),
+    shared: new FormControl('No', Validators.required),
+    area: new FormControl('', [Validators.required, Validators.pattern(/^\d+$/)]),
+    negotiable: new FormControl(true),
+    priceMode1: new FormControl(true),
     utilityIncluded: new FormControl(false),
-    furnished: new FormControl('', Validators.required),
+    furnished: new FormControl('No', Validators.required),
     amenities: new FormArray([]),
-    title: new FormControl(''),
-    description: new FormControl('')
+    title: new FormControl('', Validators.required),
+    description: new FormControl('', Validators.required)
   });
+
+  get apartmentName() {
+    return this.postFormGroup.get('apartmentName');
+  }
+  get ownerName() {
+    return this.postFormGroup.get('ownerName');
+  }
+  get shared() {
+    return this.postFormGroup.get('shared');
+  }
+  get area() {
+    return this.postFormGroup.get('area');
+  }
+  get utilityIncluded() {
+    return this.postFormGroup.get('utilityIncluded');
+  }
+  get furnished() {
+    return this.postFormGroup.get('furnished');
+  }
+  get title() {
+    return this.postFormGroup.get('title');
+  }
+  get description() {
+    return this.postFormGroup.get('description');
+  }
+
 
   // Handle amenities toggle
   onAmenityChange(e: Event) {
@@ -61,6 +87,19 @@ export class CreatePostComponent {
   }
 
   onSubmit() {
-    console.log(this.postFormGroup.value);
+    if (this.postFormGroup.invalid) {
+      this.postFormGroup.markAllAsTouched();
+      return;
+    }
+
+    const formValue = this.postFormGroup.value;
+    const amenities = (this.postFormGroup.get('amenities') as FormArray).value;
+    const finalData = {
+      ...formValue,
+      amenities
+    };
+
+    console.log(finalData); // Send to API or store
   }
+
 }

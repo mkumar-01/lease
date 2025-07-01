@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "ownerName": "Manoj Soni",
     "picture": "assets/data/apartment-1.jpg",
     "apartmentName": "BPTP",
     "propertyLocation": {
@@ -41,6 +42,7 @@
   },
   {
     "id": 2,
+    "ownerName": "Hanish Bhardwaj",
     "picture": "assets/data/apartment-2.jpg",
     "apartmentName": "SuperTech",
     "propertyLocation": {
@@ -81,6 +83,7 @@
   },
   {
     "id": 3,
+    "ownerName": "Muskan Mehta",
     "picture": "assets/data/apartment-3.jpg",
     "apartmentName": "Amrapali",
     "propertyLocation": {
@@ -121,6 +124,7 @@
   },
   {
     "id": 4,
+    "ownerName": "Gaurav Arya",
     "picture": "assets/data/apartment-4.jpg",
     "apartmentName": "Signature",
     "propertyLocation": {
@@ -161,6 +165,7 @@
   },
   {
     "id": 5,
+    "ownerName": "Girdhar Singh",
     "picture": "assets/data/apartment-5.jpg",
     "apartmentName": "Chintal",
     "propertyLocation": {
@@ -202,6 +207,7 @@
 
   {
     "id": 6,
+    "ownerName": "Shekhar Bansal",
     "picture": "assets/data/apartment-1.jpg",
     "apartmentName": "Builder floor",
     "propertyLocation": {
@@ -243,6 +249,7 @@
 
   {
     "id": 7,
+    "ownerName": "Shahid Khan",
     "picture": "assets/data/apartment-2.jpg",
     "apartmentName": "Supertech",
     "propertyLocation": {
@@ -283,6 +290,7 @@
   },
   {
     "id": 8,
+    "ownerName": "Koshal Som",
     "picture": "assets/data/apartment-1.jpg",
     "apartmentName": "Godrej",
     "propertyLocation": {
@@ -323,6 +331,7 @@
   },
   {
     "id": 9,
+    "ownerName": "Sanjay Dutt",
     "picture": "assets/data/apartment-5.jpg",
     "apartmentName": "Amatulya",
     "propertyLocation": {
