@@ -33,6 +33,11 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/detail/detail').then(m => m.Detail),
         canActivate: [authGuard]
     },
+    {
+        path: 'create-post',
+        loadComponent: () => import('./pages/create-post/create-post.component').then(m => m.CreatePostComponent),
+        canActivate: [authGuard]
+    },
     // {
     //     path: '*',
     //     loadComponent: () => import('./pages/page-not-found/page-not-found').then(m => m.PageNotFound),
