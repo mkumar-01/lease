@@ -21,5 +21,12 @@
     <p>Other Description : {{detail?.otherDescription?.title}}</p>
     <p>Other Description : {{detail?.otherDescription?.description}}</p>
   </div>
-  <comments></comments>
+  <hr />
+  <h3>User Comments</h3>
+  <div class="userComments">
+    @for (item of detail?.userComments; track $index) {
+    <p>{{item}}</p>
+    }
+  </div>
+  <comments (onAddComment)="onAddComment($event)"></comments>
 </div>

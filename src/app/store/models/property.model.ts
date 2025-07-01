@@ -22,5 +22,6 @@ export interface Property {
         description: string
     },
     featured: boolean,
-    isFavourite: boolean
+    isFavourite: boolean,
+    userComments: string[]
 }

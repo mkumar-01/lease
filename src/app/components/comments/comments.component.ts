@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
 
 @Component({
   selector: 'comments',
@@ -7,8 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './comments.component.scss'
 })
 export class CommentsComponent {
-
+  onAddComment = output<string>();
   addComments(comments: HTMLTextAreaElement) {
-    console.log(comments.value)
+    this.onAddComment.emit(comments.value);
+    comments.value = ''
   }
 }

@@ -36,7 +36,8 @@
       "title": "Some title",
       "description": "Some description"
     },
-    "featured": "false"
+    "featured": "false",
+    "userComments": []
   },
   {
     "id": 2,
@@ -75,7 +76,8 @@
       "title": "Some title",
       "description": "Some description"
     },
-    "featured": "false"
+    "featured": "false",
+    "userComments": []
   },
   {
     "id": 3,
@@ -114,7 +116,8 @@
       "title": "Some title",
       "description": "Some description"
     },
-    "featured": "false"
+    "featured": "false",
+    "userComments": []
   },
   {
     "id": 4,
@@ -153,7 +156,8 @@
       "title": "Some title",
       "description": "Some description"
     },
-    "featured": "false"
+    "featured": "false",
+    "userComments": []
   },
   {
     "id": 5,
@@ -192,7 +196,8 @@
       "title": "Some title",
       "description": "Some description"
     },
-    "featured": "true"
+    "featured": "true",
+    "userComments": []
   },
 
   {
@@ -232,7 +237,8 @@
       "title": "Some title",
       "description": "Some description"
     },
-    "featured": "false"
+    "featured": "false",
+    "userComments": []
   },
 
   {
@@ -272,7 +278,8 @@
       "title": "Some title",
       "description": "Some description"
     },
-    "featured": "false"
+    "featured": "false",
+    "userComments": []
   },
   {
     "id": 8,
@@ -311,7 +318,8 @@
       "title": "Some title",
       "description": "Some description"
     },
-    "featured": "false"
+    "featured": "false",
+    "userComments": []
   },
   {
     "id": 9,
@@ -350,6 +358,7 @@
       "title": "Some title",
       "description": "Some description"
     },
-    "featured": "false"
+    "featured": "false",
+    "userComments": []
   }
 ]
