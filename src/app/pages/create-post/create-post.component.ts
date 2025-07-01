@@ -21,6 +21,34 @@ import { Router } from '@angular/router';
 })
 export class CreatePostComponent {
   private router = inject(Router);
+  allState: string[] = [
+    "Andhra Pradesh",
+    "Arunachal Pradesh ",
+    "Assam Bihar ",
+    "Chhattisgarh ",
+    "Goa ",
+    "Gujarat ",
+    "Haryana ",
+    "Himachal Pradesh ",
+    "Jharkhand Karnataka ",
+    "Kerala ",
+    "Madhya Pradesh",
+    "Maharashtra ",
+    "Manipur ",
+    "Meghalaya ",
+    "Mizoram ",
+    "Nagaland ",
+    "Odisha ",
+    "Punjab ",
+    "Rajasthan",
+    "Sikkim ",
+    "Tamil Nadu ",
+    "Telangana ",
+    "Tripura ",
+    "Uttar Pradesh ",
+    "Uttarakhand ",
+    "West Bengal",
+  ];
   amenitiesList: string[] = [
     'Gym Fitness',
     'Power Backup',
@@ -46,7 +74,10 @@ export class CreatePostComponent {
     furnished: new FormControl('No', Validators.required),
     amenities: new FormArray([]),
     title: new FormControl('', Validators.required),
-    description: new FormControl('', Validators.required)
+    description: new FormControl('', Validators.required),
+    rent: new FormControl('', [Validators.required, Validators.pattern(/^\d+$/)]),
+    district: new FormControl('', Validators.required),
+    state: new FormControl('', Validators.required),
   });
 
   get apartmentName() {
@@ -72,6 +103,15 @@ export class CreatePostComponent {
   }
   get description() {
     return this.postFormGroup.get('description');
+  }
+  get rent() {
+    return this.postFormGroup.get('rent');
+  }
+  get district() {
+    return this.postFormGroup.get('district');
+  }
+  get state() {
+    return this.postFormGroup.get('state');
   }
 
 
@@ -116,15 +156,15 @@ export class CreatePostComponent {
         picture: "assets/data/apartment-4.jpg",
         apartmentName: newRecord.apartmentName,
         propertyLocation: {
-          area: "",
-          state: ""
+          area: newRecord.district,
+          state: newRecord.state
         },
         propertyDetail: {
           area: newRecord.area,
           leaseType: "Long term "
         },
         expectedRent: {
-          expectedRent: 20000,
+          expectedRent: newRecord.rent,
           isNegotiable: newRecord.negotiable,
           priceMode: newRecord.priceMode1
         },

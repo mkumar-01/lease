@@ -45,6 +45,62 @@
       >
     </div>
   </div>
+  <h3>State and District</h3>
+  <div class="row mb-3">
+    <div class="col-6">
+      <label for="state" class="form-label">Choose your state</label>
+      <select
+        class="form-select"
+        aria-label="Choose state"
+        id="state"
+        name="state"
+        formControlName="state"
+      >
+        <option selected>Select option</option>
+        @for (item of allState; track $index) {
+        <option [value]="item">{{ item }}</option>
+        }
+      </select>
+      <span
+        class="error"
+        *ngIf="state?.invalid && (state?.dirty || state?.touched)"
+        >Please choose state</span
+      >
+    </div>
+    <div class="col-6">
+      <label for="district" class="form-label">Enter the District</label>
+      <input
+        type="text"
+        class="form-control"
+        id="district"
+        name="district"
+        formControlName="district"
+      />
+      <span
+        class="error"
+        *ngIf="district?.invalid && (district?.dirty || district?.touched)"
+        >Please enter district name</span
+      >
+    </div>
+  </div>
+  <h3>Rent</h3>
+  <div class="row mb-3">
+    <div class="col-6">
+      <label for="rent" class="form-label">Enter the Rent</label>
+      <input
+        type="text"
+        class="form-control"
+        id="rent"
+        name="rent"
+        formControlName="rent"
+      />
+      <span
+        class="error"
+        *ngIf="rent?.invalid && (rent?.dirty || rent?.touched)"
+        >Please enter rent</span
+      >
+    </div>
+  </div>
   <h3>Is this a shared property?</h3>
   <div class="row mb-3">
     <div class="col-12">

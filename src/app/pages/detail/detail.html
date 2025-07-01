@@ -26,7 +26,7 @@
   <div class="userComments">
     <strong>User 1</strong>
     @for (item of detail?.userComments; track $index) {
-    <p>{{item}}</p>
+    <p class="p-3" style="border: 1px solid darkslateblue">{{item}}</p>
     }
   </div>
   <comments (onAddComment)="onAddComment($event)"></comments>
