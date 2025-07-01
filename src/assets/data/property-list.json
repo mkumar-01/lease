@@ -14,10 +14,10 @@
     },
     "expectedRent": {
       "expectedRent": 20000,
-      "isNegotiable": "true",
+      "isNegotiable": true,
       "priceMode": "Per Month"
     },
-    "furnished": "false",
+    "furnished": false,
     "amenitiesIncluded": [
       "Gym/Fitness Center",
       "Power Backup",
@@ -32,7 +32,7 @@
       "Water Heater",
       "Club House"
     ],
-    "shared": "true",
+    "shared": true,
     "otherDescription": {
       "title": "Some title",
       "description": "Some description"
@@ -55,10 +55,10 @@
     },
     "expectedRent": {
       "expectedRent": 15000,
-      "isNegotiable": "true",
+      "isNegotiable": false,
       "priceMode": "priceMode"
     },
-    "furnished": "false",
+    "furnished": false,
     "amenitiesIncluded": [
       "Gym/Fitness Center",
       "Power Backup",
@@ -73,7 +73,7 @@
       "Water Heater",
       "Club House"
     ],
-    "shared": "false",
+    "shared": false,
     "otherDescription": {
       "title": "Some title",
       "description": "Some description"
@@ -96,10 +96,10 @@
     },
     "expectedRent": {
       "expectedRent": 18000,
-      "isNegotiable": "true",
+      "isNegotiable": true,
       "priceMode": "Annual"
     },
-    "furnished": "false",
+    "furnished": false,
     "amenitiesIncluded": [
       "Gym/Fitness Center",
       "Power Backup",
@@ -114,7 +114,7 @@
       "Water Heater",
       "Club House"
     ],
-    "shared": "true",
+    "shared": true,
     "otherDescription": {
       "title": "Some title",
       "description": "Some description"
@@ -137,10 +137,10 @@
     },
     "expectedRent": {
       "expectedRent": 16000,
-      "isNegotiable": "true",
+      "isNegotiable": false,
       "priceMode": "Annual"
     },
-    "furnished": "false",
+    "furnished": false,
     "amenitiesIncluded": [
       "Gym/Fitness Center",
       "Power Backup",
@@ -155,7 +155,7 @@
       "Water Heater",
       "Club House"
     ],
-    "shared": "true",
+    "shared": true,
     "otherDescription": {
       "title": "Some title",
       "description": "Some description"
@@ -178,10 +178,10 @@
     },
     "expectedRent": {
       "expectedRent": 15000,
-      "isNegotiable": "true",
+      "isNegotiable": true,
       "priceMode": "Per Month"
     },
-    "furnished": "false",
+    "furnished": false,
     "amenitiesIncluded": [
       "Gym/Fitness Center",
       "Power Backup",
@@ -196,7 +196,7 @@
       "Water Heater",
       "Club House"
     ],
-    "shared": "true",
+    "shared": true,
     "otherDescription": {
       "title": "Some title",
       "description": "Some description"
@@ -220,10 +220,10 @@
     },
     "expectedRent": {
       "expectedRent": 10000,
-      "isNegotiable": "true",
+      "isNegotiable": false,
       "priceMode": "Per Month"
     },
-    "furnished": "false",
+    "furnished": false,
     "amenitiesIncluded": [
       "Gym/Fitness Center",
       "Power Backup",
@@ -238,7 +238,7 @@
       "Water Heater",
       "Club House"
     ],
-    "shared": "false",
+    "shared": false,
     "otherDescription": {
       "title": "Some title",
       "description": "Some description"
@@ -262,10 +262,10 @@
     },
     "expectedRent": {
       "expectedRent": 10000,
-      "isNegotiable": "true",
+      "isNegotiable": true,
       "priceMode": "Per Month"
     },
-    "furnished": "true",
+    "furnished": true,
     "amenitiesIncluded": [
       "Gym/Fitness Center",
       "Power Backup",
@@ -280,7 +280,7 @@
       "Water Heater",
       "Club House"
     ],
-    "shared": "false",
+    "shared": false,
     "otherDescription": {
       "title": "Some title",
       "description": "Some description"
@@ -303,10 +303,10 @@
     },
     "expectedRent": {
       "expectedRent": 8000,
-      "isNegotiable": "true",
+      "isNegotiable": false,
       "priceMode": "Per Month"
     },
-    "furnished": "true",
+    "furnished": true,
     "amenitiesIncluded": [
       "Gym/Fitness Center",
       "Power Backup",
@@ -321,7 +321,7 @@
       "Water Heater",
       "Club House"
     ],
-    "shared": "false",
+    "shared": true,
     "otherDescription": {
       "title": "Some title",
       "description": "Some description"
@@ -344,10 +344,10 @@
     },
     "expectedRent": {
       "expectedRent": 28000,
-      "isNegotiable": "true",
+      "isNegotiable": true,
       "priceMode": "Per Month"
     },
-    "furnished": "true",
+    "furnished": true,
     "amenitiesIncluded": [
       "Gym/Fitness Center",
       "Power Backup",
@@ -362,7 +362,7 @@
       "Water Heater",
       "Club House"
     ],
-    "shared": "false",
+    "shared": true,
     "otherDescription": {
       "title": "Some title",
       "description": "Some description"

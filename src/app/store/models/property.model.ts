@@ -23,5 +23,6 @@ export interface Property {
     },
     featured: boolean,
     isFavourite: boolean,
-    userComments: string[]
+    userComments: string[],
+    shared: boolean
 }

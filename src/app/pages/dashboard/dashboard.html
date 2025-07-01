@@ -17,7 +17,11 @@
   <div class="col-md-3">
     Filter
     <search (onKeyUp)="onSearch($event)"></search>
-    <filter></filter>
+    <filter
+      (onFurnishedCheck)="onFurnishedCheck($event)"
+      (onSharedCheck)="onSharedCheck($event)"
+      (onNegotiableCheck)="onNegotiableCheck($event)"
+    ></filter>
   </div>
   <div class="col-md-9">
     <div class="d-flex justify-content-between flex-nowrap">

@@ -19,7 +19,6 @@ import { Filter } from '../../components/filter/filter';
 })
 export class Dashboard implements OnInit {
   constructor(public authService: AuthServices) { }
-  private http = inject(HttpService)
   private store = inject<Store<AppState>>(Store);
 
   private endPoint = "/assets/data/property-list.json";
@@ -27,22 +26,24 @@ export class Dashboard implements OnInit {
   public listedProperty = signal<Property[] | undefined>(undefined);
   public listClonedToSearch = signal<Property[] | undefined>(undefined);
   public featured = signal<Property | undefined>(undefined);
+
+  public furnishedFilter = false;
+  public sharedFilter = false;
+  public negotiableFilter = false;
+
   ngOnInit() {
     const endPoint = this.endPoint;
     const localData = localStorage.getItem('data');
     if (localData) {
       try {
         const parsedData = JSON.parse(localData) as Property[];
-        // console.log(parsedData.filter(item => item.isFavourite))
         this.listedProperty.set(parsedData);
         this.listClonedToSearch.set(parsedData);
         this.featured.set(parsedData.find(item => String(item.featured).toLowerCase() === 'true'));
       } catch (error) {
         console.error("Failed to parse local storage data:", error);
-        // this.fetchFromStore(endPoint);
       }
     } else {
-      // console.log("not local")
       this.fetchFromStore(endPoint);
     }
   }
@@ -82,13 +83,53 @@ export class Dashboard implements OnInit {
       const parsedData = JSON.parse(localData) as Property[];
       const index = parsedData.findIndex(item => item.id === id);
       if (index !== -1) {
-        const updated = { ...parsedData[index], isFavourite: true }; // or toggle if needed
+        const updated = { ...parsedData[index], isFavourite: true };
         parsedData.splice(index, 1, updated);
         this.listedProperty.set(parsedData);
         localStorage.removeItem('data');
         localStorage.setItem('data', JSON.stringify(parsedData));
       }
     }
+  }
+
+
+  private applyCombinedFilters() {
+    const fullList = this.listClonedToSearch();
+    if (!fullList) return;
+
+    let filtered = fullList;
+
+    if (this.furnishedFilter) {
+      filtered = filtered.filter(item => item.furnished === true);
+    }
+
+    if (this.sharedFilter) {
+      filtered = filtered.filter(item => item.shared === true);
+    }
+
+    if (this.negotiableFilter) {
+      filtered = filtered.filter(item => item.expectedRent?.isNegotiable === true);
+    }
+
+    this.listedProperty.set(filtered);
+  }
+
+
+  onFurnishedCheck(event: boolean) {
+    this.furnishedFilter = event;
+    this.applyCombinedFilters();
+  }
+
+  onSharedCheck(event: boolean) {
+    this.sharedFilter = event;
+    this.applyCombinedFilters();
+
+  }
+
+  onNegotiableCheck(event: boolean) {
+    this.negotiableFilter = event;
+    this.applyCombinedFilters();
+
   }
 
 

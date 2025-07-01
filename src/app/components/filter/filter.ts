@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, output, signal } from '@angular/core';
+import { single } from 'rxjs';
 
 @Component({
   selector: 'filter',
@@ -8,17 +9,20 @@ import { Component, signal } from '@angular/core';
 })
 export class Filter {
   public selectedRange = signal<number>(8000);
+  onFurnishedCheck = output<boolean>()
+  onSharedCheck = output<boolean>()
+  onNegotiableCheck = output<boolean>()
   furnished(event: Event) {
     const input = event.target as HTMLInputElement;
-    console.log(input.checked)
+    this.onFurnishedCheck.emit(input.checked)
   }
   shared(event: Event) {
     const input = event.target as HTMLInputElement;
-    console.log(input.checked)
+    this.onSharedCheck.emit(true)
   }
   negotiable(event: Event) {
     const input = event.target as HTMLInputElement;
-    console.log(input.checked)
+    this.onNegotiableCheck.emit(input.checked)
   }
   range(event: Event) {
     const input = event.target as HTMLInputElement;
