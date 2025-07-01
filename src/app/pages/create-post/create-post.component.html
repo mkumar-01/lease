@@ -1,0 +1,276 @@
+<form class="loginForm" [formGroup]="postFormGroup" (ngSubmit)="onSubmit()">
+  <h3>Choose your Apartment/Building</h3>
+  <div class="row mb-3">
+    <div class="col-6">
+      <label for="apartmentName" class="form-label"
+        >Choose your Apartment/Building</label
+      >
+      <select
+        class="form-select"
+        aria-label="Choose apartment"
+        id="apartmentName"
+        name="apartmentName"
+        formControlName="apartmentName"
+      >
+        <option selected>Select option</option>
+        <option value="BPTP">BPTP</option>
+        <option value="Signature Global">Signature Global</option>
+        <option value="Gaur City">Gaur City</option>
+        <option value="Amrapali Noida">Amrapali Noida</option>
+        <option value="Tata Properties">Tata Properties</option>
+        <option value="Builder Floor">Builder Floor</option>
+      </select>
+      <span
+        class="error"
+        *ngIf="
+          apartmentName?.invalid &&
+          (apartmentName?.dirty || apartmentName?.touched)
+        "
+        >Please enter choose apartment name</span
+      >
+    </div>
+    <div class="col-6">
+      <label for="ownerName" class="form-label">Enter the name of your</label>
+      <input
+        type="text"
+        class="form-control"
+        id="ownerName"
+        name="ownerName"
+        formControlName="ownerName"
+      />
+      <span
+        class="error"
+        *ngIf="ownerName?.invalid && (ownerName?.dirty || ownerName?.touched)"
+        >Please enter owner name</span
+      >
+    </div>
+  </div>
+  <h3>State and District</h3>
+  <div class="row mb-3">
+    <div class="col-6">
+      <label for="state" class="form-label">Choose your state</label>
+      <select
+        class="form-select"
+        aria-label="Choose state"
+        id="state"
+        name="state"
+        formControlName="state"
+      >
+        <option selected>Select option</option>
+        @for (item of allState; track $index) {
+        <option [value]="item">{{ item }}</option>
+        }
+      </select>
+      <span
+        class="error"
+        *ngIf="state?.invalid && (state?.dirty || state?.touched)"
+        >Please choose state</span
+      >
+    </div>
+    <div class="col-6">
+      <label for="district" class="form-label">Enter the District</label>
+      <input
+        type="text"
+        class="form-control"
+        id="district"
+        name="district"
+        formControlName="district"
+      />
+      <span
+        class="error"
+        *ngIf="district?.invalid && (district?.dirty || district?.touched)"
+        >Please enter district name</span
+      >
+    </div>
+  </div>
+  <h3>Rent</h3>
+  <div class="row mb-3">
+    <div class="col-6">
+      <label for="rent" class="form-label">Enter the Rent</label>
+      <input
+        type="text"
+        class="form-control"
+        id="rent"
+        name="rent"
+        formControlName="rent"
+      />
+      <span
+        class="error"
+        *ngIf="rent?.invalid && (rent?.dirty || rent?.touched)"
+        >Please enter rent</span
+      >
+    </div>
+  </div>
+  <h3>Is this a shared property?</h3>
+  <div class="row mb-3">
+    <div class="col-12">
+      <div class="form-check">
+        <input
+          type="radio"
+          class="form-check-input"
+          name="shared"
+          id="shared1"
+          [value]="'Yes'"
+          formControlName="shared"
+        />
+        <label class="form-check-label" for="shared1"> Yes </label>
+      </div>
+      <div class="form-check">
+        <input
+          type="radio"
+          class="form-check-input"
+          name="shared"
+          id="shared2"
+          [value]="'No'"
+          formControlName="shared"
+        />
+        <label class="form-check-label" for="shared2"> No </label>
+      </div>
+    </div>
+  </div>
+  <h3>Property Details</h3>
+  <div class="row mb-3">
+    <div class="col-6">
+      <label for="area" class="form-label">Squre Feet</label>
+      <input
+        type="text"
+        class="form-control"
+        id="area"
+        name="area"
+        formControlName="area"
+      />
+      <span
+        class="error"
+        *ngIf="area?.invalid && (area?.dirty || area?.touched)"
+        >Please enter valid area</span
+      >
+    </div>
+    <div class="col-6">
+      <div class="form-check mt-4">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="negotiable"
+          formControlName="negotiable"
+        />
+        <label class="form-check-label" for="negotiable"> Negotiable </label>
+      </div>
+      <label>Price Mode</label>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value="Per Month"
+          id="priceMode1"
+          name="priceMode1"
+          formControlName="priceMode1"
+        />
+        <label class="form-check-label" for="priceMode1"> Per Month </label>
+
+        >
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="utilityIncluded"
+          name="utilityIncluded"
+          formControlName="utilityIncluded"
+        />
+        <label class="form-check-label" for="utilityIncluded">
+          Utility included in rent
+        </label>
+      </div>
+    </div>
+  </div>
+  <h3>Is the room/apartment furnished</h3>
+  <div class="row mb-3">
+    <div class="col-12">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          id="furnished1"
+          value="Yes"
+          formControlName="furnished"
+        />
+        <label class="form-check-label" for="furnished1">Yes</label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          id="furnished2"
+          value="No"
+          formControlName="furnished"
+        />
+        <label class="form-check-label" for="furnished2">No</label>
+      </div>
+    </div>
+  </div>
+
+  <h3>Amenities included</h3>
+  <div class="row">
+    <div class="col-12 d-flex gap-4 flex-wrap">
+      <div
+        class="form-check"
+        *ngFor="let amenity of amenitiesList; let i = index"
+        formArrayName="amenities"
+      >
+        <label class="form-check-label">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            [value]="amenity"
+            (change)="onAmenityChange($event)"
+          />
+          {{ amenity }}</label
+        >
+      </div>
+    </div>
+  </div>
+  <h3>Description</h3>
+  <div class="row mb-3">
+    <div class="col-12">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        id="title"
+        formControlName="title"
+      />
+      <span
+        class="error"
+        *ngIf="title?.invalid && (title?.dirty || title?.touched)"
+        >Please enter title</span
+      >
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-12">
+      <label for="description">Description</label>
+      <textarea
+        class="form-control"
+        name="description"
+        id="description"
+        formControlName="description"
+      ></textarea>
+      <span
+        class="error"
+        *ngIf="
+          description?.invalid && (description?.dirty || description?.touched)
+        "
+        >Please enter description</span
+      >
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary mt-4">Submit</button>
+</form>
+<dialog
+  *ngIf="isDialogOpened"
+  [postData]="finalData()"
+  (onClose)="close($event)"
+  (onPreviewSubmit)="onPreview($event)"
+></dialog>

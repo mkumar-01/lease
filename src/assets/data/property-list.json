@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "ownerName": "Manoj Soni",
     "picture": "assets/data/apartment-1.jpg",
     "apartmentName": "BPTP",
     "propertyLocation": {
@@ -13,10 +14,10 @@
     },
     "expectedRent": {
       "expectedRent": 20000,
-      "isNegotiable": "true",
+      "isNegotiable": true,
       "priceMode": "Per Month"
     },
-    "furnished": "false",
+    "furnished": false,
     "amenitiesIncluded": [
       "Gym/Fitness Center",
       "Power Backup",
@@ -31,15 +32,17 @@
       "Water Heater",
       "Club House"
     ],
-    "shared": "true",
+    "shared": true,
     "otherDescription": {
       "title": "Some title",
       "description": "Some description"
     },
-    "featured": "false"
+    "featured": "false",
+    "userComments": []
   },
   {
     "id": 2,
+    "ownerName": "Hanish Bhardwaj",
     "picture": "assets/data/apartment-2.jpg",
     "apartmentName": "SuperTech",
     "propertyLocation": {
@@ -52,10 +55,10 @@
     },
     "expectedRent": {
       "expectedRent": 15000,
-      "isNegotiable": "true",
+      "isNegotiable": false,
       "priceMode": "priceMode"
     },
-    "furnished": "false",
+    "furnished": false,
     "amenitiesIncluded": [
       "Gym/Fitness Center",
       "Power Backup",
@@ -70,15 +73,17 @@
       "Water Heater",
       "Club House"
     ],
-    "shared": "true",
+    "shared": false,
     "otherDescription": {
       "title": "Some title",
       "description": "Some description"
     },
-    "featured": "false"
+    "featured": "false",
+    "userComments": []
   },
   {
     "id": 3,
+    "ownerName": "Muskan Mehta",
     "picture": "assets/data/apartment-3.jpg",
     "apartmentName": "Amrapali",
     "propertyLocation": {
@@ -91,10 +96,10 @@
     },
     "expectedRent": {
       "expectedRent": 18000,
-      "isNegotiable": "true",
+      "isNegotiable": true,
       "priceMode": "Annual"
     },
-    "furnished": "false",
+    "furnished": false,
     "amenitiesIncluded": [
       "Gym/Fitness Center",
       "Power Backup",
@@ -109,15 +114,17 @@
       "Water Heater",
       "Club House"
     ],
-    "shared": "true",
+    "shared": true,
     "otherDescription": {
       "title": "Some title",
       "description": "Some description"
     },
-    "featured": "false"
+    "featured": "false",
+    "userComments": []
   },
   {
     "id": 4,
+    "ownerName": "Gaurav Arya",
     "picture": "assets/data/apartment-4.jpg",
     "apartmentName": "Signature",
     "propertyLocation": {
@@ -130,10 +137,10 @@
     },
     "expectedRent": {
       "expectedRent": 16000,
-      "isNegotiable": "true",
+      "isNegotiable": false,
       "priceMode": "Annual"
     },
-    "furnished": "false",
+    "furnished": false,
     "amenitiesIncluded": [
       "Gym/Fitness Center",
       "Power Backup",
@@ -148,15 +155,17 @@
       "Water Heater",
       "Club House"
     ],
-    "shared": "true",
+    "shared": true,
     "otherDescription": {
       "title": "Some title",
       "description": "Some description"
     },
-    "featured": "false"
+    "featured": "false",
+    "userComments": []
   },
   {
     "id": 5,
+    "ownerName": "Girdhar Singh",
     "picture": "assets/data/apartment-5.jpg",
     "apartmentName": "Chintal",
     "propertyLocation": {
@@ -169,10 +178,10 @@
     },
     "expectedRent": {
       "expectedRent": 15000,
-      "isNegotiable": "true",
+      "isNegotiable": true,
       "priceMode": "Per Month"
     },
-    "furnished": "false",
+    "furnished": false,
     "amenitiesIncluded": [
       "Gym/Fitness Center",
       "Power Backup",
@@ -187,11 +196,178 @@
       "Water Heater",
       "Club House"
     ],
-    "shared": "true",
+    "shared": true,
     "otherDescription": {
       "title": "Some title",
       "description": "Some description"
     },
-    "featured": "true"
+    "featured": "true",
+    "userComments": []
+  },
+
+  {
+    "id": 6,
+    "ownerName": "Shekhar Bansal",
+    "picture": "assets/data/apartment-1.jpg",
+    "apartmentName": "Builder floor",
+    "propertyLocation": {
+      "area": "Delhi",
+      "state": "Delhi"
+    },
+    "propertyDetail": {
+      "area": 800,
+      "leaseType": "Long Term"
+    },
+    "expectedRent": {
+      "expectedRent": 10000,
+      "isNegotiable": false,
+      "priceMode": "Per Month"
+    },
+    "furnished": false,
+    "amenitiesIncluded": [
+      "Gym/Fitness Center",
+      "Power Backup",
+      "Plant Security System",
+      "Swimming Pool",
+      "Garbage Disposal",
+      "Laundry Service",
+      "Car Park",
+      "Private Lawn",
+      "Elevator",
+      "Visitors Parking",
+      "Water Heater",
+      "Club House"
+    ],
+    "shared": false,
+    "otherDescription": {
+      "title": "Some title",
+      "description": "Some description"
+    },
+    "featured": "false",
+    "userComments": []
+  },
+
+  {
+    "id": 7,
+    "ownerName": "Shahid Khan",
+    "picture": "assets/data/apartment-2.jpg",
+    "apartmentName": "Supertech",
+    "propertyLocation": {
+      "area": "Noida",
+      "state": "UP"
+    },
+    "propertyDetail": {
+      "area": 800,
+      "leaseType": "Long Term"
+    },
+    "expectedRent": {
+      "expectedRent": 10000,
+      "isNegotiable": true,
+      "priceMode": "Per Month"
+    },
+    "furnished": true,
+    "amenitiesIncluded": [
+      "Gym/Fitness Center",
+      "Power Backup",
+      "Plant Security System",
+      "Swimming Pool",
+      "Garbage Disposal",
+      "Laundry Service",
+      "Car Park",
+      "Private Lawn",
+      "Elevator",
+      "Visitors Parking",
+      "Water Heater",
+      "Club House"
+    ],
+    "shared": false,
+    "otherDescription": {
+      "title": "Some title",
+      "description": "Some description"
+    },
+    "featured": "false",
+    "userComments": []
+  },
+  {
+    "id": 8,
+    "ownerName": "Koshal Som",
+    "picture": "assets/data/apartment-1.jpg",
+    "apartmentName": "Godrej",
+    "propertyLocation": {
+      "area": "Sohna",
+      "state": "Haryana"
+    },
+    "propertyDetail": {
+      "area": 800,
+      "leaseType": "Long Term"
+    },
+    "expectedRent": {
+      "expectedRent": 8000,
+      "isNegotiable": false,
+      "priceMode": "Per Month"
+    },
+    "furnished": true,
+    "amenitiesIncluded": [
+      "Gym/Fitness Center",
+      "Power Backup",
+      "Plant Security System",
+      "Swimming Pool",
+      "Garbage Disposal",
+      "Laundry Service",
+      "Car Park",
+      "Private Lawn",
+      "Elevator",
+      "Visitors Parking",
+      "Water Heater",
+      "Club House"
+    ],
+    "shared": true,
+    "otherDescription": {
+      "title": "Some title",
+      "description": "Some description"
+    },
+    "featured": "false",
+    "userComments": []
+  },
+  {
+    "id": 9,
+    "ownerName": "Sanjay Dutt",
+    "picture": "assets/data/apartment-5.jpg",
+    "apartmentName": "Amatulya",
+    "propertyLocation": {
+      "area": "Delhi",
+      "state": "Delhi"
+    },
+    "propertyDetail": {
+      "area": 1800,
+      "leaseType": "Long Term"
+    },
+    "expectedRent": {
+      "expectedRent": 28000,
+      "isNegotiable": true,
+      "priceMode": "Per Month"
+    },
+    "furnished": true,
+    "amenitiesIncluded": [
+      "Gym/Fitness Center",
+      "Power Backup",
+      "Plant Security System",
+      "Swimming Pool",
+      "Garbage Disposal",
+      "Laundry Service",
+      "Car Park",
+      "Private Lawn",
+      "Elevator",
+      "Visitors Parking",
+      "Water Heater",
+      "Club House"
+    ],
+    "shared": true,
+    "otherDescription": {
+      "title": "Some title",
+      "description": "Some description"
+    },
+    "featured": "false",
+    "userComments": []
   }
 ]

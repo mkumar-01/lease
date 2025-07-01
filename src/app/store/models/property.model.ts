@@ -1,4 +1,4 @@
-export default interface iPropertyDetail {
+export interface Property {
     id: number,
     picture: string,
     apartmentName: string,
@@ -21,5 +21,8 @@ export default interface iPropertyDetail {
         title: string,
         description: string
     },
-    featured: boolean
+    featured: boolean,
+    isFavourite: boolean,
+    userComments: string[],
+    shared: boolean
 }

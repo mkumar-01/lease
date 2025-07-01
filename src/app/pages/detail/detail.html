@@ -21,12 +21,13 @@
     <p>Other Description : {{detail?.otherDescription?.title}}</p>
     <p>Other Description : {{detail?.otherDescription?.description}}</p>
   </div>
-  <textarea
-    name="userComment"
-    id="userComment"
-    class="form-control mb-4"
-    style="border-color: black"
-    #commentRef
-  ></textarea>
-  <button class="btn btn-primary" (click)="post(commentRef)">Post</button>
+  <hr />
+  <h3>User Comments</h3>
+  <div class="userComments">
+    <strong>User 1</strong>
+    @for (item of detail?.userComments; track $index) {
+    <p class="p-3" style="border: 1px solid darkslateblue">{{item}}</p>
+    }
+  </div>
+  <comments (onAddComment)="onAddComment($event)"></comments>
 </div>

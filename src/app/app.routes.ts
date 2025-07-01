@@ -15,6 +15,10 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/registration/registration').then(m => m.Registration)
     },
     {
+        path: 'counter',
+        loadComponent: () => import('./components/counter/counter').then(m => m.CounterComponent)
+    },
+    {
 
         path: 'profile',
         loadComponent: () => import('./pages/profile/profile').then(m => m.Profile),
@@ -27,6 +31,11 @@ export const routes: Routes = [
     {
         path: 'detail/:id',
         loadComponent: () => import('./pages/detail/detail').then(m => m.Detail),
+        canActivate: [authGuard]
+    },
+    {
+        path: 'create-post',
+        loadComponent: () => import('./pages/create-post/create-post.component').then(m => m.CreatePostComponent),
         canActivate: [authGuard]
     },
     // {

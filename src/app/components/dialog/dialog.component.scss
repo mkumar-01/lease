@@ -1,0 +1,17 @@
+:host {
+    height: 100vh;
+    width: 100vh;
+    display: block;
+    position: fixed;
+    z-index: 9999;
+}
+
+.modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.previewBox {
+    border: 1px solid black;
+    padding: 10px 20px;
+}
