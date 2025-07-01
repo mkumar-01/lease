@@ -1,1 +1,272 @@
-<p>create-post works!</p>
+<form class="loginForm">
+  <h3>Choose your Apartment/Building</h3>
+  <div class="row mb-3">
+    <div class="col-6">
+      <label for="chooseApartment" class="form-label"
+        >Choose your Apartment/Building</label
+      >
+      <select
+        class="form-select"
+        aria-label="Choose apartment"
+        id="chooseApartment"
+        name="chooseApartment"
+      >
+        <option selected>Select option</option>
+        <option value="BPTP">BPTP</option>
+        <option value="Signature Global">Signature Global</option>
+        <option value="Gaur City">Gaur City</option>
+        <option value="Amrapali Noida">Amrapali Noida</option>
+        <option value="Tata Properties">Tata Properties</option>
+        <option value="Builder Floor">Builder Floor</option>
+      </select>
+    </div>
+    <div class="col-6">
+      <label for="name" class="form-label">Enter the name of your</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        formControlName="password"
+      />
+    </div>
+  </div>
+  <h3>Is this a shared property?</h3>
+  <div class="row mb-3">
+    <div class="col-12">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="shared"
+          id="shared1"
+        />
+        <label class="form-check-label" for="shared1"> Yes </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="shared"
+          id="shared2"
+          checked
+        />
+        <label class="form-check-label" for="shared2"> No </label>
+      </div>
+    </div>
+  </div>
+  <h3>Property Details</h3>
+  <div class="row mb-3">
+    <div class="col-6">
+      <label for="area" class="form-label">Squre Feet</label>
+      <input
+        type="text"
+        class="form-control"
+        id="area"
+        name="area"
+        formControlName="area"
+      />
+    </div>
+    <div class="col-6">
+      <div class="form-check mt-4">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value="Yes"
+          id="negotiable"
+          name="negotiable"
+        />
+        <label class="form-check-label" for="negotiable"> Negotiable </label>
+      </div>
+      <label>Price Mode</label>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value="Per Month"
+          id="priceMode1"
+          name="priceMode1"
+        />
+        <label class="form-check-label" for="priceMode1"> Per Month </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value="Utility Included"
+          id="utilityIncluded"
+          name="utilityIncluded"
+        />
+        <label class="form-check-label" for="utilityIncluded">
+          Utility included in rent
+        </label>
+      </div>
+    </div>
+  </div>
+  <h3>Is the room/apartment furnished</h3>
+  <div class="row mb-3">
+    <div class="col-12">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="furnished"
+          id="furnished1"
+        />
+        <label class="form-check-label" for="furnished1"> Yes </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="furnished"
+          id="furnished2"
+          checked
+        />
+        <label class="form-check-label" for="furnished2"> No </label>
+      </div>
+    </div>
+  </div>
+  <h3>Amenities included</h3>
+  <div class="row">
+    <div class="col-12 d-flex gap-4 flex-wrap">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value="Gym Fitness"
+          id="amenities1"
+          name="amenities1"
+        />
+        <label class="form-check-label" for="amenities1"> Gym Fitness </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value="Power Backup"
+          id="amenities2"
+          name="amenities2"
+        />
+        <label class="form-check-label" for="amenities2"> Power Backup </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value="Plant Security System"
+          id="amenities3"
+          name="amenities3"
+        />
+        <label class="form-check-label" for="amenities3">
+          Plant Security System
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value="Swimming Pool"
+          id="amenities4"
+          name="amenities4"
+        />
+        <label class="form-check-label" for="amenities4"> Swimming Pool </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value="Garbage Disposal"
+          id="amenities5"
+          name="amenities5"
+        />
+        <label class="form-check-label" for="amenities5">
+          Garbage Disposal
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value="Laundary service"
+          id="amenities6"
+          name="amenities6"
+        />
+        <label class="form-check-label" for="amenities6">
+          Laundary service
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value="Car Park"
+          id="amenities7"
+          name="amenities7"
+        />
+        <label class="form-check-label" for="checkChecked"> Car Park </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value="Private Lawn"
+          id="amenities8"
+          name="amenities8"
+        />
+        <label class="form-check-label" for="amenities8"> Private Lawn </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value="Elevator"
+          id="amenities9"
+          name="amenities9"
+        />
+        <label class="form-check-label" for="amenities9"> Elevator </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value="Visitors Parking"
+          id="amenities10"
+          name="amenities10"
+        />
+        <label class="form-check-label" for="amenities10">
+          Visitors Parking
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value="Water heater"
+          id="amenities11"
+          name="amenities11"
+        />
+        <label class="form-check-label" for="amenities11"> Water heater </label>
+      </div>
+    </div>
+  </div>
+  <h3>Description</h3>
+  <div class="row mb-3">
+    <div class="col-12">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" name="title" id="title" />
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-12">
+      <label for="description">Description</label>
+      <textarea
+        class="form-control"
+        name="description"
+        id="description"
+      ></textarea>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary mt-4">Submit</button>
+</form>
