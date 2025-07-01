@@ -2,15 +2,26 @@
   <div class="modal-dialog modal-xl modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Modal 1</h1>
-        <button type="button" class="btn-close" aria-label="Close"></button>
+        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
+          Post Preview
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          aria-label="Close"
+          (click)="close()"
+        ></button>
       </div>
       <div class="modal-body">
         Show a second modal and hide this one with the button below.
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary">Close</button>
-        <button type="button" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-secondary" (click)="close()">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary" (click)="onSubmit()">
+          Submit
+        </button>
       </div>
     </div>
   </div>

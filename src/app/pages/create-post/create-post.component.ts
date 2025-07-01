@@ -22,6 +22,8 @@ import { DialogComponent } from '../../components/dialog/dialog.component';
 })
 export class CreatePostComponent {
   private router = inject(Router);
+  public isPreviewOpened: boolean = false;
+
   allState: string[] = [
     "Andhra Pradesh",
     "Arunachal Pradesh ",
@@ -183,8 +185,16 @@ export class CreatePostComponent {
       parsedData.push(newData);
       localStorage.removeItem('data');
       localStorage.setItem('data', JSON.stringify(parsedData));
-      this.router.navigate(['/dashboard'])
+      this.isPreviewOpened = true;
+      // this.router.navigate(['/dashboard'])
     }
+  }
+  closeAndSubmit(value: boolean) {
+    console.log(value)
+    this.isPreviewOpened = value;
+  }
+  onPreview(value: boolean) {
+    console.log(value)
   }
 
 

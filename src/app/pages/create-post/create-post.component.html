@@ -268,4 +268,8 @@
 
   <button type="submit" class="btn btn-primary mt-4">Submit</button>
 </form>
-<dialog></dialog>
+<dialog
+  *ngIf="isPreviewOpened"
+  (onClose)="closeAndSubmit($event)"
+  (onPreviewSubmit)="onPreview($event)"
+></dialog>

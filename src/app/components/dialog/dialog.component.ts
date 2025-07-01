@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
 
 @Component({
   selector: 'dialog',
@@ -7,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrl: './dialog.component.scss'
 })
 export class DialogComponent {
+  onClose = output<boolean>();
+  onPreviewSubmit = output<boolean>();
+  close() {
+    this.onClose.emit(false)
+  }
+  onSubmit() {
+    this.onPreviewSubmit.emit(true)
+    this.onClose.emit(false)
+  }
 
 }
