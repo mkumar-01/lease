@@ -270,6 +270,7 @@
 </form>
 <dialog
   *ngIf="isDialogOpened"
+  [postData]="finalData()"
   (onClose)="close($event)"
   (onPreviewSubmit)="onPreview($event)"
 ></dialog>

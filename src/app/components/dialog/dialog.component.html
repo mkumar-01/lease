@@ -1,3 +1,4 @@
+@let data = postData();
 <div class="modal fade show" style="display: block">
   <div class="modal-dialog modal-xl modal-dialog-centered">
     <div class="modal-content">
@@ -13,7 +14,87 @@
         ></button>
       </div>
       <div class="modal-body">
-        Show a second modal and hide this one with the button below.
+        <div class="row mb-3">
+          <div class="col-6 previewBox">
+            <label>Apartment Name</label>
+            <div>
+              <strong>{{ data?.apartmentName }}</strong>
+            </div>
+          </div>
+          <div class="col-6 previewBox">
+            <label>Size</label>
+            <div>
+              <strong>{{ data?.area }}</strong>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6 previewBox">
+            <label>State</label>
+            <div>
+              <strong>{{ data?.state }}</strong>
+            </div>
+          </div>
+          <div class="col-6 previewBox">
+            <label>District</label>
+            <div>
+              <strong>{{ data?.district }}</strong>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6 previewBox">
+            <label>Rent</label>
+            <div>
+              <strong>{{ data?.rent }}</strong>
+            </div>
+          </div>
+          <div class="col-6 previewBox">
+            <label>Negotiable</label>
+            <div>
+              <strong>{{ data?.negotiable ? "Yes" : "No" }}</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-6 previewBox">
+            <label>Shared</label>
+            <div>
+              <strong>{{ data?.shared }}</strong>
+            </div>
+          </div>
+          <div class="col-6 previewBox">
+            <label>Owner Name</label>
+            <div>
+              <strong>{{ data?.ownerName }}</strong>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label>Amenities</label>
+          <ul style="margin-left: 50px">
+            @for (item of data?.amenities; track $index){
+            <li>{{ item }}</li>
+            }
+          </ul>
+        </div>
+        <div class="row mb-3">
+          <div class="col-12 previewBox">
+            <label>Title</label>
+            <div>
+              <strong>{{ data?.title }}</strong>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-12 previewBox">
+            <label>Description</label>
+            <div>
+              <strong>{{ data?.description }}</strong>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" (click)="close()">
