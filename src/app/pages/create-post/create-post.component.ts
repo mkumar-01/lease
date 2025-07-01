@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import {
   FormArray,
   FormBuilder,
@@ -22,7 +22,9 @@ import { DialogComponent } from '../../components/dialog/dialog.component';
 })
 export class CreatePostComponent {
   private router = inject(Router);
-  public isPreviewOpened: boolean = false;
+  public isDialogOpened: boolean = false;
+  public isPreviewSubmitted: boolean = false;
+  public finalData: any = signal(null);
 
   allState: string[] = [
     "Andhra Pradesh",
@@ -145,10 +147,13 @@ export class CreatePostComponent {
       amenities
     };
 
-    this.updateRecord(finalData);
-    this.postFormGroup.reset()
+    // this.updateRecord(finalData);
+    this.finalData.set(finalData);
+    this.isDialogOpened = true;
+
   }
-  updateRecord(newRecord: any) {
+  updateRecord() {
+    const newRecord = this.finalData();
     const localData = localStorage.getItem('data');
     if (localData) {
       const parsedData = JSON.parse(localData) as any[];
@@ -183,18 +188,24 @@ export class CreatePostComponent {
       };
 
       parsedData.push(newData);
-      localStorage.removeItem('data');
-      localStorage.setItem('data', JSON.stringify(parsedData));
-      this.isPreviewOpened = true;
-      // this.router.navigate(['/dashboard'])
+
+      if (this.isPreviewSubmitted) {
+        localStorage.removeItem('data');
+        localStorage.setItem('data', JSON.stringify(parsedData));
+        this.postFormGroup.reset()
+        this.router.navigate(['/dashboard'])
+      }
+
     }
   }
-  closeAndSubmit(value: boolean) {
-    console.log(value)
-    this.isPreviewOpened = value;
+  close(value: boolean) {
+    this.isPreviewSubmitted = value;
+    this.isDialogOpened = value;
   }
   onPreview(value: boolean) {
-    console.log(value)
+    this.isPreviewSubmitted = value;
+    this.isDialogOpened = false;
+    this.updateRecord()
   }
 
 
